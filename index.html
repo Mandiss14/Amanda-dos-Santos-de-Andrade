@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>AMANDA-TELEFLIX</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>AMANDA-TELEFLIX</h1>
+  </header>
+
+  <!-- LAYOUT: MENU LATERAL (ESQ) + VÍDEO (DIR) -->
+  <div class="layout">
+    <!-- LATERAL ESQUERDA -->
+    <aside class="sidebar compacto">
+      <!-- Seletor de tema -->
+      <section style="padding:12px 0;">
+        <label for="tema" style="color:##b56209; margin-right:8px;">ESCOLHA O TEMA:</label>
+        <select id="tema">
+          <option value="REGGAE">REGGAE</option>
+          <option value="POP-CLASSICO">MENSAGENS</option>
+          <option value="ANIME2000S">POP STAR</option>
+          <option value="RAP-ANIME">AULAS</option>
+        </select>
+      </section>
+
+      <!-- Menu dinâmico gerado via JS -->
+      <nav class="nav-vertical" aria-label="Lista de vídeos do tema">
+        <ul id="menu-temas"><!-- Itens gerados via JS --></ul>
+      </nav>
+
+      <!-- Menu fixo adicional -->
+      <br>
+      <h1 style="font-size:15px; color:##c24f11; margin:16px 0; text-align:left;">
+  VÍDEOS EXTERNOS DO YOUTUBE👇
+</h1>
+      <nav class="nav-vertical" aria-label="Vídeos fixos">
+        <ul>
+          <li><a href=https://youtu.be/6X5krhF4RdA?si=ii5sy5dyRAiYM2u_</a></li>
+          <li><a href=https://youtu.be/j-3ATZ6x6EA?si=LlhjRmXkz8IfOMlG</a></li>
+          <li><a href=https://youtu.be/4G7kRHQdmq0?si=-349b2ErPBpxgNL8</a></li>
+          <li><a href=https://youtu.be/nCRheu5bvBw?si=KO7GVdYMLWjtthUb</a></li>
+          <li><a href=https://youtu.be/6-8E4Nirh9s?si=lMbqIjFAD9wvvzRP</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- PLAYER À DIREITA -->
+    <main class="player">
+      <div class="video-box">
+        <iframe
+          class="video-frame"
+          width="540"
+          height="310"
+          src="https://www.youtube.com/embed/kNJPalON82E"
+          title="Player de vídeo"
+          frameborder="0"
+          allowfullscreen
+        ></iframe>
+
+        <div class="info">
+          <h3>Eu Sou Teu Pai</h3>
+          <p>Valesca Mayssa.</p>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    // Mapa de temas → lista de vídeos
+    const TEMAS = {
+      REGGAE: [
+        { titulo: "MEU AMIGO É", 
+         autor: "MC SID", 
+         url: "https://youtu.be/6X5krhF4RdA?si=NLXHsmo7nE7AhExL" 
+        },
+        { titulo: "MEU PAI É RATAFARI", 
+         autor: "MANEVA", 
+         url: "https://youtu.be/j-3ATZ6x6EA?si=FOVM5KAmGH2SdKEP"
+        },
+        { titulo: "SAUDADES DO TEMPO", 
+         autor: "MANEVA", 
+         url: "https://youtu.be/hpOWZVu7sKY?si=yMnK4JPAKOxbMC-v" 
+        },
+      ],
+      POP-CLASSICO: [
+        { titulo: "DYNAMITE", 
+         autor: "TAIO CRUZ", 
+         url: "https://youtu.be/VUjdiDeJ0xg?si=sXAzKtkOcB6xeetf" 
+        },
+        { titulo: "I GOTTA FELLYNG", 
+         autor: "DOONG DOONG", 
+         url: "https://youtu.be/CwdrtwZiQ9E?si=VajnYBmydA7CUVK3" 
+        },
+      ],
+      ANIME2000S: [
+        { titulo: "BOOM BOOM BOOM", 
+         autor: "LEATHER", 
+         url: "https://youtu.be/1TzYnfcxNNE?si=5k1pw38qUu5_unUV" 
+        },
+        { titulo: "PEDRO, THIAGO, JOÃO NO BARQUINHO", 
+         autor: "3 PALAVRINHAS", 
+         url: "https://youtu.be/Tdwy3BZe61s?si=As38T49IC695wKE0" 
+        },
+      ],
+      AULAS: [
+        { titulo: "INTRODUÇÃO A JAVASCRIPT", 
+         autor: "TIGER CODES", 
+         url: "https://youtu.be/WRlfwBof66s?si=0o80ULtCNqjj-lU2" 
+        },
+        { titulo: "HTML E CSS BÁSICO EM 5 MINUTOS", 
+         autor: "TIGER CODES", 
+         url: "https://www.youtube.com/watch?v=5Hn58p-hYC0" 
+        },
+      ],
+    };
+
+    // Seletores
+    const selectTema = document.getElementById("tema");
+    const menuUl     = document.getElementById("menu-temas");
+    const iframeEl   = document.querySelector(".video-box iframe");
+    const infoTitulo = document.querySelector(".info h3");
+    const infoAutor  = document.querySelector(".info p");
+
+    // Converte URL normal do YouTube para /embed
+    function toEmbed(url) {
+      try {
+        const u = new URL(url);
+        const id = u.searchParams.get("v");
+        if (id) return `https://www.youtube.com/embed/${id}`;
+        if (u.hostname.includes("youtu.be")) return `https://www.youtube.com/embed/${u.pathname.slice(1)}`;
+        return url;
+      } catch {
+        return url;
+      }
+    }
+
+    // Renderiza o menu com base no tema
+    function renderMenu(tema) {
+      const lista = TEMAS[tema] || [];
+      menuUl.innerHTML = "";
+
+      lista.forEach((video) => {
+        const li = document.createElement("li");
+        const a  = document.createElement("a");
+        a.href = "#";
+        a.textContent = video.titulo.toUpperCase();
+        a.setAttribute("role", "button");
+        a.addEventListener("click", (e) => {
+          e.preventDefault();
+          trocarVideo(video);
+        });
+        li.appendChild(a);
+        menuUl.appendChild(li);
+      });
+
+      if (lista.length) trocarVideo(lista[0]);
+    }
+
+    // Troca o vídeo e informações
+    function trocarVideo(video) {
+      iframeEl.src = toEmbed(video.url);
+      infoTitulo.textContent = video.titulo.toUpperCase();
+      infoAutor.textContent  = `${video.autor.toUpperCase()}.`;
+    }
+
+    // Inicialização
+    renderMenu(selectTema.value);
+    selectTema.addEventListener("change", () => renderMenu(selectTema.value));
+  </script>
+</body>
+</html>
+```
+
+
+
+
+
