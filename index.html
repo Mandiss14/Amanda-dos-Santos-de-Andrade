@@ -10,13 +10,10 @@
     <h1>AMANDA-TELEFLIX</h1>
   </header>
 
-  <!-- LAYOUT: MENU LATERAL (ESQ) + VÍDEO (DIR) -->
   <div class="layout">
-    <!-- LATERAL ESQUERDA -->
     <aside class="sidebar compacto">
-      <!-- Seletor de tema -->
       <section style="padding:12px 0;">
-        <label for="tema" style="color:##b56209; margin-right:8px;">ESCOLHA O TEMA:</label>
+        <label for="tema" style="color:#b56209; margin-right:8px;">ESCOLHA O TEMA:</label>
         <select id="tema">
           <option value="REGGAE">REGGAE</option>
           <option value="POP-CLASSICO">POP-CLASSICO</option>
@@ -25,35 +22,32 @@
         </select>
       </section>
 
-      <!-- Menu dinâmico gerado via JS -->
       <nav class="nav-vertical" aria-label="Lista de vídeos do tema">
-        <ul id="menu-temas"><!-- Itens gerados via JS --></ul>
+        <ul id="menu-temas"></ul>
       </nav>
 
-      <!-- Menu fixo adicional -->
       <br>
-      <h1 style="font-size:15px; color:##c24f11; margin:16px 0; text-align:left;">
-  VÍDEOS EXTERNOS DO YOUTUBE👇
-</h1>
+      <h1 style="font-size:15px; color:#c24f11; margin:16px 0; text-align:left;">
+        VÍDEOS EXTERNOS DO YOUTUBE👇
+      </h1>
       <nav class="nav-vertical" aria-label="Vídeos fixos">
         <ul>
-          <li><a href=https://youtu.be/R_ZDB8Me5oA?si=m-JS9IXMXmYtARJl</a></li>
-          <li><a href=https://youtu.be/Njh70nvCPVI?si=kQnUvRBWNGgw4iJJ</a></li>
-          <li><a href=https://youtu.be/4G7kRHQdmq0?si=-349b2ErPBpxgNL8</a></li>
-          <li><a href=https://youtu.be/5dv75GW1ErU?si=YFxyb-4P1F9sMVhP</a></li>
-          <li><a href=https://youtu.be/GO9cAsNu3nw?si=556YIXks6dQ5i2T_</a></li>
+          <li><a href="https://youtu.be/R_ZDB8Me5oA?si=m-JS9IXMXmYtARJl">Vídeo Externo 1</a></li>
+          <li><a href="https://youtu.be/Njh70nvCPVI?si=kQnUvRBWNGgw4iJJ">Vídeo Externo 2</a></li>
+          <li><a href="https://youtu.be/4G7kRHQdmq0?si=-349b2ErPBpxgNL8">Vídeo Externo 3</a></li>
+          <li><a href="https://youtu.be/5dv75GW1ErU?si=YFxyb-4P1F9sMVhP">Vídeo Externo 4</a></li>
+          <li><a href="https://youtu.be/GO9cAsNu3nw?si=556YIXks6dQ5i2T_">Vídeo Externo 5</a></li>
         </ul>
       </nav>
     </aside>
 
-    <!-- PLAYER À DIREITA -->
     <main class="player">
       <div class="video-box">
         <iframe
           class="video-frame"
           width="540"
           height="310"
-          src="https://youtu.be/6RGM3TQJSWQ?si=oGGWvpRBWfztrinL"
+          src="https://www.youtube.com/embed/6RGM3TQJSWQ"
           title="Player de vídeo"
           frameborder="0"
           allowfullscreen
@@ -67,92 +61,91 @@
     </main>
   </div>
 
-  <!-- JavaScript -->
   <script>
     // Mapa de temas → lista de vídeos
     const TEMAS = {
       REGGAE: [
-        { titulo: "MEU AMIGO É", 
-         autor: "MC SID", 
-         url: "https://youtu.be/6X5krhF4RdA?si=NLXHsmo7nE7AhExL" 
+        { titulo: "MEU AMIGO É",
+          autor: "MC SID",
+          url: "https://youtu.be/6X5krhF4RdA?si=NLXHsmo7nE7AhExL"
         },
-        { titulo: "MEU PAI É RATAFARI", 
-         autor: "MANEVA", 
-         url: "https://youtu.be/j-3ATZ6x6EA?si=FOVM5KAmGH2SdKEP"
+        { titulo: "MEU PAI É RATAFARI",
+          autor: "MANEVA",
+          url: "https://youtu.be/j-3ATZ6x6EA?si=FOVM5KAmGH2SdKEP"
         },
-        { titulo: "SAUDADES DO TEMPO", 
-         autor: "MANEVA", 
-         url: "https://youtu.be/hpOWZVu7sKY?si=yMnK4JPAKOxbMC-v" 
+        { titulo: "SAUDADES DO TEMPO",
+          autor: "MANEVA",
+          url: "https://youtu.be/hpOWZVu7sKY?si=yMnK4JPAKOxbMC-v"
         },
-        { titulo: "MEU LUGAR", 
-         autor: "ONZE20", 
-         url: "https://youtu.be/NcPtnX_7PrM?si=lSzCInyrbh1V_40w"
+        { titulo: "MEU LUGAR",
+          autor: "ONZE20",
+          url: "https://youtu.be/NcPtnX_7PrM?si=lSzCInyrbh1V_40w"
         },
-        { titulo: "SORRI, SOU REI", 
-         autor: "NATIRUTS", 
-         url: "https://youtu.be/8Xv6FZ_6V60?si=CsE6fSG3AZ64nA3F"
+        { titulo: "SORRI, SOU REI",
+          autor: "NATIRUTS",
+          url: "https://youtu.be/8Xv6FZ_6V60?si=CsE6fSG3AZ64nA3F"
+        },
       ],
-      POP-CLASSICO: [
-        { titulo: "DYNAMITE", 
-         autor: "TAIO CRUZ", 
-         url: "https://youtu.be/VUjdiDeJ0xg?si=sXAzKtkOcB6xeetf" 
+      "POP-CLASSICO": [ // Chave corrigida com aspas
+        { titulo: "DYNAMITE",
+          autor: "TAIO CRUZ",
+          url: "https://youtu.be/VUjdiDeJ0xg?si=sXAzKtkOcB6xeetf"
         },
-        { titulo: "I GOTTA FELLYNG", 
-         autor: "DOONG DOONG", 
-         url: "https://youtu.be/CwdrtwZiQ9E?si=VajnYBmydA7CUVK3" 
+        { titulo: "I GOTTA FELLYNG",
+          autor: "BLACK EYED PEAS", // Autor corrigido
+          url: "https://youtu.be/CwdrtwZiQ9E?si=VajnYBmydA7CUVK3"
         },
-        { titulo: "TIK TOK", 
-         autor: "KE$HA", 
-         url:"https://youtu.be/iP6XpLQM2Cs?si=nVgmXVDfcmPgvcll"
+        { titulo: "TIK TOK",
+          autor: "KE$HA",
+          url:"https://youtu.be/iP6XpLQM2Cs?si=nVgmXVDfcmPgvcll"
         },
-        { titulo: "DON OMAR", 
-         autor: "DANÇA KUDURO FT.LUCENZO", 
-         url: "https://youtu.be/7zp1TbLFPp8?si=pmCATMzeWRYBLceF"
+        { titulo: "DANÇA KUDURO", // Título corrigido
+          autor: "DON OMAR FT.LUCENZO", // Autor corrigido
+          url: "https://youtu.be/7zp1TbLFPp8?si=pmCATMzeWRYBLceF"
         },
-         { titulo: "MADAGASCAR", 
-         autor: "EDY LEMOND", 
-         url: "https://youtu.be/b3m9G4gADPQ?si=MnT7uA_iWBFh13nF"
-         },
+        { titulo: "MADAGASCAR",
+          autor: "EDY LEMOND",
+          url: "https://youtu.be/b3m9G4gADPQ?si=MnT7uA_iWBFh13nF"
+        },
       ],
       ANIME2000S: [
-        { titulo: "BOOM BOOM BOOM", 
-         autor: "LEATHER", 
-         url: "https://youtu.be/1TzYnfcxNNE?si=5k1pw38qUu5_unUV" 
+        { titulo: "BOOM BOOM BOOM",
+          autor: "LEATHER",
+          url: "https://youtu.be/1TzYnfcxNNE?si=5k1pw38qUu5_unUV"
         },
-        { titulo: "Caramelldansen HD Version", 
-         autor: "CARAMELLA GIRLS", 
-         url: "https://youtu.be/PDJLvF1dUek?si=yCgHHDY0k8FCGd57" 
+        { titulo: "Caramelldansen HD Version",
+          autor: "CARAMELLA GIRLS",
+          url: "https://youtu.be/PDJLvF1dUek?si=yCgHHDY0k8FCGd57"
         },
-         { titulo: "Everytime we touch", 
-         autor: " Nightcore", 
-         url: "https://youtu.be/8QG7CEuUqMc?si=jhhk6y_UsxaEZh2Y"
-         },
-         { titulo: "Bad boy", 
-         autor: " Nightcore", 
-         url: "https://youtu.be/cmlCuzn_mqI?si=rqLEpxk5vBdClp7j"
-         },
-         { titulo: "La canción más pegadiza del mundo", 
-         autor: "LEVAN POLKA", 
-         url: "https://youtu.be/tlXSMrGWK9M?si=XAipKvM3o5Dd3N8v"
-         },
-    
+        { titulo: "Everytime we touch",
+          autor: "Nightcore",
+          url: "https://youtu.be/8QG7CEuUqMc?si=jhhk6y_UsxaEZh2Y"
+        },
+        { titulo: "Bad boy",
+          autor: "Nightcore",
+          url: "https://youtu.be/cmlCuzn_mqI?si=rqLEpxk5vBdClp7j"
+        },
+        { titulo: "La canción más pegadiza del mundo",
+          autor: "LEVAN POLKA",
+          url: "https://youtu.be/tlXSMrGWK9M?si=XAipKvM3o5Dd3N8v"
+        },
       ],
-      RAPANIME: [
-        { titulo: "rap do levi", 
-         autor: "byakuran", 
-         url: "https://youtu.be/FyAd9ZYQlQk?si=EdRh6yXG1dpUzmxu" 
+      "RAP-ANIME": [ // Chave corrigida com aspas
+        { titulo: "rap do levi",
+          autor: "byakuran",
+          url: "https://youtu.be/FyAd9ZYQlQk?si=EdRh6yXG1dpUzmxu"
         },
-        { titulo: "O cara que comeu a kaguya", 
-         autor: "byakuran", 
-         url: "https://youtu.be/JQqf2UXjUaw?si=cfxYM6tzhgm39B36" 
+        { titulo: "O cara que comeu a kaguya",
+          autor: "byakuran",
+          url: "https://youtu.be/JQqf2UXjUaw?si=cfxYM6tzhgm39B36"
         },
       ],
     };
 
     // Seletores
     const selectTema = document.getElementById("tema");
-    const menuUl     = document.getElementById("menu-temas");
-    const iframeEl   = document.querySelector(".video-box iframe");
+    const menuUl      = document.getElementById("menu-temas");
+    const iframeEl    = document.querySelector(".video-box iframe");
     const infoTitulo = document.querySelector(".info h3");
     const infoAutor  = document.querySelector(".info p");
 
@@ -204,9 +197,3 @@
   </script>
 </body>
 </html>
-```
-
-
-
-
-
