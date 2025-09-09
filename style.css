@@ -117,7 +117,7 @@ html, body {
 }
 
 .nav-vertical ul li a:hover{
-  background: #2a3245;
+  background: #f08998;
   color: #fff;
   border-color: #3f9cff;
   transform: translateY(-1px);
