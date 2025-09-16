@@ -8,7 +8,7 @@
         * NOVAS CORES EM TOM DE ROSA
         */
         :root {
-            --cor-principal: #f06292; /* Rosa escuro */
+            --cor-principal: #f7527b; /* Rosa escuro */
             --cor-secundaria: #e91e63; /* Rosa vibrante */
             --cor-destaque: #f8bbd0; /* Rosa claro */
             --cor-fundo: #ffebee; /* Fundo rosa bem claro */
@@ -17,21 +17,21 @@
         }
         
         body {
-            background-color: var(--cor-fundo);
-            color: var(--cor-texto-claro);
+            background-color: var(#ffebee);
+            color: var(#424242);
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
         }
 
         header {
-            background-color: var(--cor-secundaria);
+            background-color: var(#e91e63);
             padding: 20px;
             text-align: center;
         }
 
         h1 {
-            color: var(--cor-texto-escuro);
+            color: var(#fafafa);
             font-size: 24px;
         }
 
@@ -42,7 +42,7 @@
 
         .sidebar {
             width: 250px;
-            background-color: var(--cor-destaque);
+            background-color: var(#f8bbd0);
             padding: 20px;
             box-sizing: border-box;
             overflow-y: auto;
@@ -52,7 +52,7 @@
             font-size: 18px;
             margin: 16px 0;
             text-align: left;
-            color: var(--cor-principal);
+            color: var(#f7527b);
         }
 
         .nav-vertical ul {
@@ -64,15 +64,15 @@
         .nav-vertical li a {
             display: block;
             padding: 10px;
-            color: var(--cor-texto-claro);
+            color: var(#424242);
             text-decoration: none;
-            border-bottom: 1px solid var(--cor-principal);
+            border-bottom: 1px solid var(#f7527b);
             transition: background-color 0.3s;
         }
 
         .nav-vertical li a:hover {
-            background-color: var(--cor-secundaria);
-            color: var(--cor-texto-escuro);
+            background-color: var(#e91e63);
+            color: var(#fafafa);
         }
 
         .player {
@@ -83,14 +83,14 @@
             justify-content: center;
             padding: 20px;
             box-sizing: border-box;
-            background-color: var(--cor-fundo);
+            background-color: var(#ffebee);
         }
 
         .video-box {
-            background-color: var(--cor-secundaria);
+            background-color: var(#e91e63);
             width: 100%;
             max-width: 800px;
-            border: 2px solid var(--cor-principal);
+            border: 2px solid var(#f7527b);
             box-shadow: 0 0 15px rgba(0,0,0,0.2);
             text-align: center;
         }
@@ -103,8 +103,8 @@
 
         .info {
             padding: 10px;
-            background-color: var(--cor-principal);
-            color: var(--cor-texto-escuro);
+            background-color: var(#f7527b);
+            color: var(#fafafa);
         }
 
         .info h3, .info p {
@@ -112,9 +112,9 @@
         }
 
         select {
-            background-color: var(--cor-destaque);
-            color: var(--cor-texto-claro);
-            border: 1px solid var(--cor-principal);
+            background-color: var(#f8bbd0);
+            color: var(#424242);
+            border: 1px solid var(#f7527b);
             padding: 5px;
             border-radius: 4px;
         }
