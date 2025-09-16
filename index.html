@@ -3,7 +3,122 @@
 <head>
     <meta charset="UTF-8" />
     <title>AMANDA-TELEFLIX</title>
-    <link rel="stylesheet" href="style.css" />
+    <style>
+        /*
+        * NOVAS CORES EM TOM DE ROSA
+        */
+        :root {
+            --cor-principal: #f06292; /* Rosa escuro */
+            --cor-secundaria: #e91e63; /* Rosa vibrante */
+            --cor-destaque: #f8bbd0; /* Rosa claro */
+            --cor-fundo: #ffebee; /* Fundo rosa bem claro */
+            --cor-texto-claro: #424242; /* Cinza escuro para texto */
+            --cor-texto-escuro: #fafafa; /* Branco para texto em fundo escuro */
+        }
+        
+        body {
+            background-color: var(--cor-fundo);
+            color: var(--cor-texto-claro);
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: var(--cor-secundaria);
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: var(--cor-texto-escuro);
+            font-size: 24px;
+        }
+
+        .layout {
+            display: flex;
+            min-height: calc(100vh - 64px);
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: var(--cor-destaque);
+            padding: 20px;
+            box-sizing: border-box;
+            overflow-y: auto;
+        }
+
+        .sidebar h1 {
+            font-size: 18px;
+            margin: 16px 0;
+            text-align: left;
+            color: var(--cor-principal);
+        }
+
+        .nav-vertical ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-vertical li a {
+            display: block;
+            padding: 10px;
+            color: var(--cor-texto-claro);
+            text-decoration: none;
+            border-bottom: 1px solid var(--cor-principal);
+            transition: background-color 0.3s;
+        }
+
+        .nav-vertical li a:hover {
+            background-color: var(--cor-secundaria);
+            color: var(--cor-texto-escuro);
+        }
+
+        .player {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            box-sizing: border-box;
+            background-color: var(--cor-fundo);
+        }
+
+        .video-box {
+            background-color: var(--cor-secundaria);
+            width: 100%;
+            max-width: 800px;
+            border: 2px solid var(--cor-principal);
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+
+        .video-frame {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 16 / 9;
+        }
+
+        .info {
+            padding: 10px;
+            background-color: var(--cor-principal);
+            color: var(--cor-texto-escuro);
+        }
+
+        .info h3, .info p {
+            margin: 0;
+        }
+
+        select {
+            background-color: var(--cor-destaque);
+            color: var(--cor-texto-claro);
+            border: 1px solid var(--cor-principal);
+            padding: 5px;
+            border-radius: 4px;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -13,7 +128,7 @@
     <div class="layout">
         <aside class="sidebar compacto">
             <section style="padding:12px 0;">
-                <label for="tema" style="color:#b56209; margin-right:8px;">ESCOLHA O TEMA:</label>
+                <label for="tema" style="color:var(--cor-principal); margin-right:8px;">ESCOLHA O TEMA:</label>
                 <select id="tema">
                     <option value="REGGAE">REGGAE</option>
                     <option value="POP-CLASSICO">POP-CLASSICO</option>
@@ -27,7 +142,7 @@
             </nav>
 
             <br>
-            <h1 style="font-size:15px; color:#c24f11; margin:16px 0; text-align:left;">
+            <h1 style="font-size:15px; color:var(--cor-principal); margin:16px 0; text-align:left;">
                 VÍDEOS EXTERNOS DO YOUTUBE👇
             </h1>
             <nav class="nav-vertical" aria-label="Vídeos fixos">
@@ -36,7 +151,7 @@
                     <li><a href="https://youtu.be/Njh70nvCPVI?si=kQnUvRBWNGgw4iJJ">Vídeo Externo 2</a></li>
                     <li><a href="https://youtu.be/4G7kRHQdmq0?si=-349b2ErPBpxgNL8">Vídeo Externo 3</a></li>
                     <li><a href="https://youtu.be/5dv75GW1ErU?si=YFxyb-4P1F9sMVhP">Vídeo Externo 4</a></li>
-                    <li><a href="https://youtu.be/6RGM3TQJSWQ?si=oGGWvpRBWfztrinL>Vídeo Externo 5</a></li>
+                    <li><a href="https://youtu.be/6RGM3TQJSWQ?si=oGGWvpRBWfztrinL">Vídeo Externo 5</a></li>
                 </ul>
             </nav>
         </aside>
@@ -68,7 +183,7 @@
                   autor: "MC SID",
                   url: "https://youtu.be/6X5krhF4RdA?si=NLXHsmo7nE7AhExL"
                 },
-                { titulo: "MEU PAI É RASTAFARI", // Corrected typo
+                { titulo: "MEU PAI É RASTAFARI",
                   autor: "MANEVA",
                   url: "https://youtu.be/j-3ATZ6x6EA?si=FOVM5KAmGH2SdKEP"
                 },
@@ -90,7 +205,7 @@
                   autor: "TAIO CRUZ",
                   url: "https://youtu.be/VUjdiDeJ0xg?si=sXAzKtkOcB6xeetf"
                 },
-                { titulo: "I GOTTA FEELING", // Corrected typo
+                { titulo: "I GOTTA FEELING",
                   autor: "BLACK EYED PEAS",
                   url: "https://youtu.be/CwdrtwZiQ9E?si=VajnYBmydA7CUVK3"
                 },
@@ -148,15 +263,12 @@
         const infoAutor = document.querySelector(".info p");
 
         function toEmbed(url) {
-            try {
-                const u = new URL(url);
-                const id = u.searchParams.get("v");
-                if (id) return `https://www.youtube.com/embed/${id}`;
-                if (u.hostname.includes("youtu.be")) return `https://www.youtube.com/embed/${u.pathname.slice(1)}`;
-                return url;
-            } catch {
-                return url;
+            const youtubeRegex = /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/;
+            const match = url.match(youtubeRegex);
+            if (match && match[1]) {
+                return `https://www.youtube.com/embed/${match[1]}`;
             }
+            return url;
         }
 
         function renderMenu(tema) {
